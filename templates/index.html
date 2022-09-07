@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Your BasketBall Position</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+  
+<style>
+body {
+  background-image: url("https://wallpaperaccess.com/full/139517.jpg");
+  background-position: 200%;
+  background-size: cover;
+}
+</style>
+
+
+
+ <div class="login">
+	<h1 style="font-weight: 700;">Check Your BasketBall Position</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="height" placeholder="Height in ft" required="required" />
+        <input type="text" name="weight" placeholder="Weight in kg" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Check</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+   <div class="footer" style="color: rgb(251, 251, 255); font-size: large;">Built with<span style="font-size:150%;color:red;"> &hearts; </span>by MAC</div>
+
+ </div>
